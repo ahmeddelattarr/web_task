@@ -29,9 +29,4 @@
   - **Request Body**:
     - `author` (string): The author of the comment.
     - `content` (string): The content of the comment.
-- **GET /api/posts/{post_id}/comments/{id}/**: Retrieve a specific comment by ID.
-- **PUT /api/posts/{post_id}/comments/{id}/**: Update a specific comment by ID.
-  - **Request Body**:
-    - `author` (string): The author of the comment.
-    - `content` (string): The content of the comment.
-- **DELETE /api/posts/{post_id}/comments/{id}/**: Delete a specific comment by ID.
+    - `post_id` (integer): The ID of the post the comment belongs to.
