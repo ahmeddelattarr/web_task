@@ -6,11 +6,11 @@ class Posts(models.Model):
 	title = models.CharField(max_length=100)
 	content = models.TextField()
 
-	pics = models.ImageField(
-		upload_to='pics/',
-	    blank=True,
-	    null=True
-	    )
+	#pics = models.ImageField(
+		#upload_to='pics/',
+	    #blank=True,
+	   # null=True
+	   # )
 	category = models.CharField(max_length=50)
 
 
