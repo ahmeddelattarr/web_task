@@ -3,7 +3,7 @@
 
 ## tickets : 
 ## 1. **Home Page**:
-### name
+### Menna Ahmed 
    - Navbar: search bar, Home, category, new thread button
    - All threads "clickable"
    - Footer
