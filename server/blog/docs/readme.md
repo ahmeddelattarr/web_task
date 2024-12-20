@@ -10,7 +10,7 @@
     - `author` (string): The author of the post.
     - `title` (string): The title of the post.
     - `content` (string): The content of the post.
-    - `pics` (file, optional): An image file for the post.
+    
     - `category` (string): The category of the post.
 - **GET /api/posts/{id}/**: Retrieve a specific post by ID.
 - **PUT /api/posts/{id}/**: Update a specific post by ID.
@@ -18,9 +18,20 @@
     - `author` (string): The author of the post.
     - `title` (string): The title of the post.
     - `content` (string): The content of the post.
-    - `pics` (file, optional): An image file for the post.
+    
     - `category` (string): The category of the post.
 - **DELETE /api/posts/{id}/**: Delete a specific post by ID.
+
+2. **Search posts by title:**
+   ```
+   GET /api/posts/?search=example
+   ```
+
+3. **Order posts by category:**
+   ```
+   GET /api/posts/?ordering=category
+   ```
+
 
 #### Comments
 
