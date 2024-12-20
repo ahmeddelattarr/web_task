@@ -22,6 +22,17 @@
     - `category` (string): The category of the post.
 - **DELETE /api/posts/{id}/**: Delete a specific post by ID.
 
+  2. **Search posts by title:**
+   ```
+   GET /api/posts/?search=example
+   ```
+
+3. **Order posts by category:**
+   ```
+   GET /api/posts/?ordering=category
+   ```
+
+
 #### Comments
 
 - **GET /api/posts/{post_id}/comments/**: Retrieve a list of all comments for a specific post.
@@ -30,3 +41,4 @@
     - `author` (string): The author of the comment.
     - `content` (string): The content of the comment.
     - `post_id` (integer): The ID of the post the comment belongs to.
+    - 
