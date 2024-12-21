@@ -9,13 +9,13 @@
    - Footer
 
 ## 2. **Category**:
-### name
+### eyad hesham
    - Same navbar
    - Categories "clickable"
    - Same footer
 
 ## 3. **Category Thread**:
-### name
+### zead wael
    - Same navbar
    - Title of category
    - All threads related to this category
@@ -32,7 +32,7 @@
    - Same footer
 
 ## 5. **New Thread**:
-### name
+### habiba mohamed
    - Same navbar
    - Inputs: title, author, content
    - Submit button that will redirect to the thread page
