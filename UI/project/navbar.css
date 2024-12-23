@@ -17,7 +17,6 @@
 .mainpage{
     position: relative;
     width: 100%;
-    height: 100vh;
     display: inline-block;
 
 
@@ -82,50 +81,40 @@ margin-left: 20px;
     color: #385568;
 }
 /*end navbar*/
-
 /* Footer */
 .footer {
-    margin-top: 50px;
-    padding-top: 100px;
-    padding-bottom: 50px;
-    background-color: linear-gradient(135deg,#71b7e6,#9b56b6)95c5;
-    position: relative;
-  }
-  
-  .icons {
-    margin-left: 45%;
+            background: linear-gradient(135deg,#71b7e6,#9b56b6);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     color: #fff;
-    display: inline-block;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.footer .icons {
     font-size: 20px;
-    margin-bottom: 20px;
-  }
-  .icons i:hover
-  {
+    margin-bottom: 10px;
+}
+
+.footer .icons i {
+    margin-left: 20px;
+    transition: color 0.3s;
+}
+
+.footer .icons i:hover {
     color: #1e2930;
     cursor: pointer;
-  }
-  .icons i {
-    transition-property: all;
-    transition-duration: 1s;
-    color: #fff;
-    margin-left: 20px;
-  }
-  
-  .texted {
+}
+
+.footer .texted {
     font-weight: 400;
     font-size: 17px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    color: #ffffff;
-    text-align: center;
-  }
-  
-  .color {
-    display: inline-block;
-    color:  #1e2930;
+    color: #fff;
+}
+
+.footer .color {
+    color: #1e2930;
     text-decoration: none;
-    transition-property: all;
-    transition-duration: 1s;
-  }
-  .color:hover{
-    text-decoration: underline;
-  }
+    transition: color 0.3s;
+}
