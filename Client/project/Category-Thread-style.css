@@ -1,0 +1,67 @@
+.thread-container {
+    background: white;
+    margin: 20px auto;
+    width: 80%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.thread-container:hover {
+    cursor: pointer;
+    transform: scale(1.03);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); / Darker and larger shadow */
+}
+
+.thread-header h2 {
+    font-size: 1.5rem;
+    margin: 0;
+    color: #2c3e50;
+}
+.thread-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #7f8c8d;
+}
+
+.thread-meta .category {
+    background-color: #b476da;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.thread-meta .comments {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 18px;
+    font-weight: bolder;
+color: #34495e;
+}
+.thread-meta .comments i
+{
+    color: #34495e;
+}
+.thread-meta .icon {
+    width: 16px;
+    height: 16px;
+}
+
+.thread-body {
+    margin: 20px 0;
+    font-size: 1rem;
+    color: #34495e;
+}
+.category-thread a {
+    text-decoration: none;
+}
+.category-thread h5 {
+    margin: 10px ;
+    font-size: 40px;
+    color: white ;
+}
