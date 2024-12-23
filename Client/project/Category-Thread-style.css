@@ -11,7 +11,7 @@
 .thread-container:hover {
     cursor: pointer;
     transform: scale(1.03);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); / Darker and larger shadow */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); 
 }
 
 .thread-header h2 {
@@ -55,7 +55,7 @@ color: #34495e;
 .thread-body {
     margin: 20px 0;
     font-size: 1rem;
-    color: #34495e;
+    color: #34495e !important;
 }
 .category-thread a {
     text-decoration: none;
@@ -64,4 +64,7 @@ color: #34495e;
     margin: 10px ;
     font-size: 40px;
     color: white ;
+}
+.category-thread .thread-container .thread-body p {
+    color: #34495e !important;
 }

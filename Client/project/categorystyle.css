@@ -1,3 +1,4 @@
+
 .categories-grid {
     display: flex;
     flex-wrap: wrap;
@@ -18,7 +19,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    height: 150px; /* Ensures consistent size for all categories */
+    height: 150px;
 }
 
 .category:hover {
@@ -32,11 +33,11 @@
 }
 
 .name {
-    font-size: 14px; /* Consistent font size */
+    font-size: 14px;
     font-weight: bold;
     color: #333;
-    text-align: center; /* Ensures text stays centered */
-    overflow: hidden; /* Hides overflowing text */
-    white-space: nowrap; /* Prevents text wrapping */
-    text-overflow: ellipsis; /* Adds ellipsis for long text */
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }

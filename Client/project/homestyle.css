@@ -1,5 +1,7 @@
 body{
-        height: 100vh;
+        font-family: "Ubuntu", serif;
+        font-weight: 300;
+        font-style: normal;
 }
 .thread-container {
     background: white;
@@ -10,7 +12,6 @@ body{
     padding: 20px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .thread-container:hover {
     cursor: pointer;
     transform: scale(1.03);
