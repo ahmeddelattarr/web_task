@@ -1,0 +1,86 @@
+*{
+    margin :0;
+    padding: 0;
+     }
+     /* body{
+        background: linear-gradient(135deg,#71b7e6,#9b56b6);
+
+     } */
+
+/*navbar*/
+.logo p a{
+    font-size: 30px;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+}
+.mainpage{
+    background: linear-gradient(135deg,#71b7e6,#9b56b6);
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: inline-block;
+
+
+}
+.navbar {
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    padding :30px 50px;
+}
+
+ul
+{
+list-style-type: none;
+}
+li
+{
+  display: inline-block;
+
+}
+li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: lighter;
+  font-size: 25px;
+
+}
+.items{
+    width: 65%;
+    display: flex;
+    justify-content: right;
+
+}
+.items li {
+margin-right: 40px;
+margin-left: 20px;
+}
+.items li a:hover{
+    color: #385568;
+}
+
+#search{
+   padding: 8px;
+    margin-left: 15px;
+    margin-right:15px ;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+
+}
+.btnthread{
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+font-weight: bold;
+}
+.btnthread a{
+    text-decoration: none;
+    color: black;
+}
+.btnthread a:hover{
+    color: #385568;
+}
+/*end navbar*/
