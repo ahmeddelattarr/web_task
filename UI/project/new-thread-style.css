@@ -1,0 +1,59 @@
+/* new thread form*/
+.threads{
+    padding: 35px;
+    max-width: 400px;
+ 
+    display: flex;
+    justify-content: center;
+    
+    flex-direction: column;
+     margin: auto;
+     margin-top: 50px;
+     border:1.5px solid #ccc;
+     border-radius: 25px;
+     box-shadow: 0 6px 8px rgba(0, 0,0, 0.1);
+     animation-name: form;
+     animation-duration: 2s;
+ 
+ }
+ 
+ .item label{
+    margin-left: 4px;
+    margin-bottom: 8px;
+    display: block;
+    color: rgb(63, 53, 53);
+    font-weight: bold;
+    font-size: 18px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+    
+    .item input , .item textarea{
+        margin-left: 1px;
+        margin-bottom: 15px;
+        display: block;
+        border-radius: 10px;
+        width: 95%;
+        padding: 15px;
+        border: 1px solid #cacaca;
+        max-width: 95%;
+    }
+    .btnpost{
+        font-weight: bold;
+          width: 30%;
+         padding: 12px;
+         text-align: center;
+          border: none;
+          border-radius: 10px;
+          cursor: pointer;
+          margin: auto;
+          color: rgb(63, 53, 53);
+          margin-top: 10px;
+          font-size: 15px;
+          font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+    .btnpost:hover{
+        background-color:#cacaca ;
+    }
+    /* end new thread form */
+    
+    
