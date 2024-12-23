@@ -1,3 +1,6 @@
+body{
+        height: 100vh;
+}
 .thread-container {
     background: white;
     margin: 20px auto;
@@ -10,7 +13,7 @@
 
 .thread-container:hover {
     cursor: pointer;
-    transform: scale(1.03); /* Slightly enlarge the element /
+    transform: scale(1.03);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); / Darker and larger shadow */
 }
 
@@ -56,4 +59,8 @@ color: #34495e;
     margin: 20px 0;
     font-size: 1rem;
     color: #34495e;
+}
+.Home a{
+    text-decoration: none;
+    color: #1e2930;
 }

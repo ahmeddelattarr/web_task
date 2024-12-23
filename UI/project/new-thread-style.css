@@ -1,11 +1,13 @@
 /* new thread form*/
+body
+{
+    height: 110vh;
+}
 .threads{
-    padding: 35px;
+    padding: 25px;
     max-width: 400px;
- 
     display: flex;
     justify-content: center;
-    
     flex-direction: column;
      margin: auto;
      margin-top: 50px;
@@ -14,7 +16,6 @@
      box-shadow: 0 6px 8px rgba(0, 0,0, 0.1);
      animation-name: form;
      animation-duration: 2s;
- 
  }
  
  .item label{
