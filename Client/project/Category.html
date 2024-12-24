@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="categorystyle.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -11,98 +14,28 @@
 <body>
     <!-- Navbar -->
      <div class="mainpage">
-        <div class="navbar">
-             <div class="logo">
-                <p><a href="home.html">Simple Forum</a></p>
-            </div>
-            <div class="items">
-                <ul>
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="Category.html">Category</a></li>
-                </ul>
-            </div>
-            <div class="searchbar">
-                <form>
-                    <input type="text" name="search" id="search" placeholder="Search">
-                    <button class="btnthread" type="submit"><a href="new-thread.html">New Thread</a></button>
-                </form>
-            </div>
-        </div>
+<div class="navbar">
+    <div class="logo">
+        <p><a href="home.html">Simple Forum</a></p>
+    </div>
+    <div class="items">
+        <ul>
+            <li><a href="home.html" class="nav-link">Home</a></li>
+            <li><a href="Category.html" class="nav-link">Category</a></li>
+        </ul>
+    </div>
+    <div class="searchbar">
+        <form>
+            <input type="text" name="search" id="search" placeholder="Search">
+            <button class="btnthread" type="submit"><a href="new-thread.html">New Thread</a></button>
+        </form>
+    </div>
+</div>
          <!-- Main -->
-         <div class="categories-grid">
-            <a href="Category-Thread.html">
-            <div class="category">
-                <img src="https://img.icons8.com/color/48/headphones.png" alt="Music Icon" class="icon">
-                <span class="name">Music</span> 
-            </div>
-             </a>
-            <a href="Category-Thread.html">
-            <div class="category">
-                <img src="https://img.icons8.com/color/48/camera.png" alt="Photography Icon" class="icon">
-                <span class="name">Photography</span>
-            </div>
-        </a>
-        <a href="Category-Thread.html">
-            <div class="category">
-                <img src="https://img.icons8.com/color/48/shopping-cart.png" alt="Shopping Icon" class="icon">
-                <span class="name">Shopping</span>
-            </div>
-        </a>
-        <a href="Category-Thread.html">
-            <div class="category">
-                <img src="https://img.icons8.com/color/48/gift.png" alt="Gifts Icon" class="icon">
-                <span class="name">Gifts</span>
-            </div>
-        </a>
-        <a href="Category-Thread.html">
-            <div class="category">
-                <img src="https://img.icons8.com/color/48/basketball.png" alt="Sports Icon" class="icon">
-                <span class="name">Sports</span>
-            </div>
-        </a>
-        <a href="Category-Thread.html">
-            <div class="category">
-                <img src="https://img.icons8.com/color/48/books.png" alt="Books Icon" class="icon">
-                <span class="name">Books</span>
-            </div>
-        </a>
-        <a href="Category-Thread.html">
-            <div class="category">
-                <img src="https://img.icons8.com/color/48/controller.png" alt="Games Icon" class="icon">
-                <span class="name">Games</span>
-            </div>
-        </a>
-        <a href="Category-Thread.html">
-            <div class="category">
-                <img src="https://img.icons8.com/color/48/pray.png" alt="Religion Icon" class="icon">
-                <span class="name">Religion</span>
-            </div>
-        </a>
-        <a href="Category-Thread.html">
-            <div class="category">
-                <img src="https://img.icons8.com/color/48/car.png" alt="Cars Icon" class="icon">
-                <span class="name">Cars</span>
-            </div>
-        </a>
-        <a href="Category-Thread.html">
-            <div class="category">
-                <img src="https://img.icons8.com/color/48/hammer.png" alt="Crafts Icon" class="icon">
-                <span class="name">Crafts</span>
-            </div>
-        </a>
-        <a href="Category-Thread.html">
-            <div class="category">
-                <img src="https://img.icons8.com/color/48/smartphone.png" alt="Gadgets Icon" class="icon">
-                <span class="name">Gadgets</span>
-            </div>
-        </a>
-        <a href="Category-Thread.html">
-            <div class="category">
-                <img src="https://img.icons8.com/color/48/paint-palette.png" alt="Art & Design Icon" class="icon">
-                <span class="name">Art & Design</span>
-            </div>
-        </a>
-         </div>
+<div class="categories-grid">
+    <!-- Dynamic categories will be loaded here -->
+</div>
+
     <div class="footer">
         <div class="icons">
             <i class="fa-brands fa-facebook"></i>

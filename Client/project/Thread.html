@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="threadstyle.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -20,8 +20,8 @@
             </div>
             <div class="items">
                 <ul>
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="Category.html">Category</a></li>
+                    <li><a href="home.html" class="nav-link">Home</a></li>
+                    <li><a href="Category.html" class="nav-link">Category</a></li>
                 </ul>
             </div>
             <div class="searchbar">
@@ -31,76 +31,65 @@
                 </form>
             </div>
         </div>
+
         <!-- Thread Section -->
         <div class="thread-container">
             <div class="thread-header">
-                <h2>Best way to export data in XML and CSV format</h2>
+                <h2 id="thread-title">Loading...</h2>
                 <div class="thread-meta">
-                    <span class="category">Data Export</span>
+                    <span class="category" id="thread-category">Loading...</span>
                     <span class="comments">
                         <i class="fa-solid fa-comment"></i>
-                        <span>2 Comments</span>
+                        <span id="comment-count">Loading...</span>
                     </span>
                 </div>
             </div>
             <div class="thread-body">
-                <p>I'm looking for the best way to let users export and download data in XML and CSV formats. I have found some packages, but they don't provide XML export. Any recommendations?</p>
+                <p id="thread-content">Loading...</p>
             </div>
-            <div class="answers">
-                <div class="answer">
-                    <div class="answer-header">
-                        <strong>Dennis Mitchell</strong> <span class="badge">Best Answer</span>
-                    </div>
-                    <div class="answer-body">
-                        <p>You can try the Formatter package. Here's an example:</p>
-                        <pre>
-$formatter = Formatter::make($csvString, Formatter::CSV);
-$xml = $formatter->toXml();
-                        </pre>
-                    </div>
-                </div>
-                <div class="answer">
-                    <div class="answer-header">
-                        <strong>Anna Brown</strong>
-                    </div>
-                    <div class="answer-body">
-                        <p>I recommend exploring the SimpleXML library for XML export. It’s straightforward and well-supported.</p>
-                    </div>
-                </div>
+
+            <!-- Comments Section (Answers) -->
+            <div class="answers" id="comments-section">
+                <!-- Comments will be dynamically inserted here -->
             </div>
+
             <!-- New Comment Form -->
             <div class="reply-form">
-                <form>
+                <form id="comment-form">
                     <div class="author-section">
-                    <i class="fa-solid fa-comment"></i>
-                                    <h2>Add your comment</h2>
+                        <i class="fa-solid fa-comment"></i>
+                        <h2>Add your comment</h2>
                     </div>
-                     <div class="author-section">
-                         <input type="text" name="author" placeholder="Your Name" required>
+                    <div class="author-section">
+                        <input type="text" name="author" placeholder="Your Name" required>
                     </div>
                     <div class="submit">
-                    <textarea id="content" name="content" required placeholder="Write your comment here..."></textarea>
-                    <button type="submit">
-<i class="fa-solid fa-arrow-up"></i>
-                    </button>
-                        </div>
+                        <textarea id="content" name="content" required placeholder="Write your comment here..."></textarea>
+                        <button type="submit">
+                            <i class="fa-solid fa-arrow-up"></i>
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>
-           <div class="footer">
-        <div class="icons">
-            <i class="fa-brands fa-facebook"></i>
-            <i class="fa-brands fa-twitter"></i>
-            <i class="fa-brands fa-google"></i>
-            <i class="fa-brands fa-github"></i>
-        </div>
-        <div class="texted">
-            <span>Copy Right 2024 © By</span>
-            <a href="#Simple Forum" class="color">Simple Forum</a>
-            <span> All Rights Reserved</span>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="icons">
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-twitter"></i>
+                <i class="fa-brands fa-google"></i>
+                <i class="fa-brands fa-github"></i>
+            </div>
+            <div class="texted">
+                <span>Copy Right 2024 © By</span>
+                <a href="#Simple Forum" class="color">Simple Forum</a>
+                <span> All Rights Reserved</span>
+            </div>
         </div>
     </div>
-    </div>
+
+    <!-- JavaScript to handle API integration -->
     <script src="main.js"></script>
 </body>
 </html>

@@ -14,47 +14,45 @@
 <body>
     <!-- Navbar -->
      <div class="mainpage">
-              <div class="navbar">
-            <div class="logo">
-                <p><a href="home.html">Simple Forum</a></p>
-            </div>
-            <div class="items">
-                <ul>
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="Category.html">Category</a></li>
-                </ul>
-            </div>
-            <div class="searchbar">
-                <form>
-                    <input type="text" name="search" id="search" placeholder="Search">
-                    <button class="btnthread" type="submit"><a href="new-thread.html">New Thread</a></button>
-                </form>
-            </div>
-        </div>
+<div class="navbar">
+    <div class="logo">
+        <p><a href="home.html">Simple Forum</a></p>
+    </div>
+    <div class="items">
+        <ul>
+            <li><a href="home.html" class="nav-link">Home</a></li>
+            <li><a href="Category.html" class="nav-link">Category</a></li>
+        </ul>
+    </div>
+    <div class="searchbar">
+        <form>
+            <input type="text" name="search" id="search" placeholder="Search">
+            <button class="btnthread" type="submit"><a href="new-thread.html">New Thread</a></button>
+        </form>
+    </div>
+</div>
  <!--new threads  -->
-
- <form action="#">
+<form id="newThreadForm">
     <div class="threads">
         <div class="item">
             <label for="title">Title</label>
-            <input type="text" name="title" id="title" placeholder="Enter your title">
+            <input type="text" name="title" id="title" placeholder="Enter your title" required>
         </div>
         <div class="item">
             <label for="author">Author</label>
-            <input type="text" name="author" id="author" placeholder="Enter author name">
+            <input type="text" name="author" id="author" placeholder="Enter author name" required>
         </div>
         <div class="item">
             <label for="category">Category</label>
-            <input type="text" name="category" id="category" placeholder="Enter category">
+            <input type="text" name="category" id="category" placeholder="Enter category" required>
         </div>
         <div class="item">
             <label for="content">Content</label>
-            <textarea  rows="6" name="content" id="content" placeholder="Write your content"></textarea>
+            <textarea rows="6" name="content" id="content" placeholder="Write your content" required></textarea>
         </div>
-        
         <button type="submit" class="btnpost">Post</button>
     </div>
- </form>
+</form>
 
 
     </div>
