@@ -1,8 +1,17 @@
+
+//fetch data of posts
+// async always followed by await >> to wait for data to be loaded from API
+// => ( arrow function ): to write function on 1 line
+//${selectedCategory} >> $ :mean dynamic variable (word changes)
+
+
 // home :
+
   async function fetchPosts()
   {
             const apiUrl = 'http://127.0.0.1:8000/api/posts/';
-
+// try and catch >> try : to write code in it
+                  //catch: to catch error in case find
             try {
                 const response = await fetch(apiUrl); // Make GET request
                 if (!response.ok) {
@@ -10,12 +19,13 @@
                 }
 
                 const posts = await response.json();
+              //variable container to put on it code html that have id threads-container
                 const container = document.getElementById('threads-container');
 
-                // Clear the container
+                // Clear the container to update date
                 container.innerHTML = '';
 
-                // Dynamically generate threads
+                // Dynamically generate threads "html in backslash"
                 posts.forEach(post => {
                     const threadHTML = `
                         <a href="Thread.html">
@@ -47,14 +57,17 @@
 
         // Call the function to fetch posts on page load
         fetchPosts();
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//navbar:
 
    document.addEventListener('DOMContentLoaded', () => {
         // Select all navigation links
         const navLinks = document.querySelectorAll('.nav-link');
 
-        // Function to set the active class
+        // Function to set the active class >>to change color of this nav-link when I am in this page
         const setActiveNav = (event) => {
             // Remove the 'active' class from all links
+            //forEach function >> to loop on all links and delete active class
             navLinks.forEach(link => link.classList.remove('active'));
 
             // Add the 'active' class to the clicked link
@@ -66,7 +79,7 @@
             link.addEventListener('click', setActiveNav);
         });
 
-        // Automatically highlight the active link based on the current page
+        //  highlight the active link based on the current page
         const currentPath = window.location.pathname.split('/').pop(); // Get the current file name
         navLinks.forEach(link => {
             if (link.getAttribute('href') === currentPath) {
@@ -75,6 +88,9 @@
         });
     });
 
+   /////////////////////////////////////////////////////////////////////////////////////////////////////
+// category :
+//to get all category
    document.addEventListener('DOMContentLoaded', async () => {
     const apiBaseUrl = 'http://127.0.0.1:8000';
     const categoriesGrid = document.querySelector('.categories-grid');
@@ -109,39 +125,43 @@
         categoriesGrid.innerHTML = `<p>Failed to load categories. Please try again later.</p>`;
     }
 });
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+//category threads :
 
    document.addEventListener('DOMContentLoaded', async () => {
+       //to find the page that i clicked
     const urlParams = new URLSearchParams(window.location.search);
     const selectedCategory = urlParams.get('category'); // Get category from URL query
     const apiBaseUrl = 'http://127.0.0.1:8000';
-    const categoryThreadContainer = document.querySelector('.category-thread');
+    const categoryThread = document.querySelector('.category-thread');
 
     try {
+        //not found data in this category
         if (!selectedCategory) {
-            categoryThreadContainer.innerHTML = `<p style="color:red;">Category not specified!</p>`;
+            categoryThread.innerHTML = `<p style="color:red;">Category not specified!</p>`;
             return;
         }
-
-        // Fetch posts filtered by the selected category
         const response = await fetch(`${apiBaseUrl}/api/posts/?ordering=category`);
 
+     //.ok>> is a built-in function that check data loaded or not
         if (!response.ok) {
+            //   function (throw nwe error) : to return error
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
-
+// in category thread  appear posts
         const posts = await response.json();
 
-        // Filter posts by the selected category
+        // Filter posts by  category( if category = category )
         const filteredPosts = posts.filter(post => post.category === selectedCategory);
 
         if (filteredPosts.length === 0) {
-            categoryThreadContainer.innerHTML = `<p>No threads found for the category: <strong>${selectedCategory}</strong></p>`;
+            categoryThread.innerHTML = `<p>No threads found for the category: <strong>${selectedCategory}</strong></p>`;
             return;
         }
 
         // Render threads dynamically
-        categoryThreadContainer.innerHTML = `
-            <h5>Category: ${selectedCategory}</h5>
+        categoryThread.innerHTML = `
+            <h5 class="CategTitle">Category : <span class="categtype">${selectedCategory}</span></h5>
             ${filteredPosts
                 .map(
                     post => `
@@ -168,15 +188,19 @@
         `;
     } catch (error) {
         console.error('Error fetching threads:', error);
-        categoryThreadContainer.innerHTML = `<p style="color:red;">Failed to load threads. Please try again later.</p>`;
+        categoryThread.innerHTML = `<p style="color:red;">Failed to load threads. Please try again later.</p>`;
     }
 });
+
+   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//new threads:
+
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('newThreadForm');
     const apiBaseUrl = 'http://127.0.0.1:8000';
 
     form.addEventListener('submit', async (e) => {
-        e.preventDefault(); // Prevent default form submission
+        e.preventDefault(); //( function to prevent data appear in url )
 
         const formData = new FormData(form); // Gather form data
 
@@ -200,6 +224,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+/////////////////////////////////////////////////////////////////////////////////////////////////////
 const postId = 1; // Replace with dynamic post ID, based on your use case
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -301,3 +326,68 @@ function addComment(postId, author, content) {
     })
     .catch(error => console.error('Error adding comment:', error));
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////
+//search :
+
+document.addEventListener("DOMContentLoaded", () => {
+    const searchInput = document.getElementById("search");
+    const threadsContainer = document.getElementById("threads-container");
+    const apiUrl = "http://127.0.0.1:8000/api/posts/";
+
+    // Function to fetch posts
+    const fetchPosts = async (query) => {
+        try {
+            const response = await fetch(`${apiUrl}?search=${query}`);// query >> input that user use
+            if (!response.ok) throw new Error("Failed to fetch posts");
+            const data = await response.json();
+            renderPosts(data);
+        } catch (error) {
+            console.error(error);
+            threadsContainer.innerHTML = `<p>Error fetching posts. Please try again later.</p>`;
+        }
+    };
+
+    // Function to render posts
+    const renderPosts = (posts) => {
+        threadsContainer.innerHTML = ""; // Clear existing posts
+        if (posts.length === 0) {
+            threadsContainer.innerHTML = "<p>No posts found.</p>";
+            return;
+        }
+
+        posts.forEach((post) => {
+            const postElement = document.createElement("div");
+            postElement.classList.add("post");
+            postElement.innerHTML = `
+<div class="thread-container">
+                            <div class="thread-header">
+                                   <h2>${post.author}</h2>
+                                    <h2>${post.title}</h2>
+                                <div class="thread-meta">
+                                    <span class="category">${post.category}</span>
+                                    <span class="comments">
+                                        <i class="fa-solid fa-comment"></i> Comments
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="thread-body">
+                                <p style="color:black">${post.content.substring(0, 150)}...</p>
+                            </div>
+                        </div>>
+            `;
+            threadsContainer.appendChild(postElement);
+        });
+    };
+
+    // Event listener for search input (query)
+    searchInput.addEventListener("input", () => {
+        const query = searchInput.value.trim();
+        if (query) {
+            fetchPosts(query);
+        } else {
+            threadsContainer.innerHTML = "";
+        }
+    });
+});
+

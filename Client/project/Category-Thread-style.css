@@ -68,3 +68,12 @@ color: #34495e;
 .category-thread .thread-container .thread-body p {
     color: #34495e !important;
 }
+.CategTitle{
+    font-size: 35px !important;
+    margin-left: 80px !important;
+}
+.categtype{
+        font-size: 27px !important;
+    color: #335188;
+    text-shadow:  0 2px 2px rgba(0, 0,0, 0.5);
+}

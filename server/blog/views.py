@@ -12,7 +12,7 @@ class PostList(viewsets.ModelViewSet):
 	queryset = Posts.objects.all()
 	serializer_class = PostSerializer
 	filter_backends = [filters.SearchFilter,filters.OrderingFilter]
-	search_fields = ['title']
+	search_fields = ['title','category']
 	ordering_fields = ['category']
 
 

@@ -12,7 +12,6 @@
     <title>Thread</title>
 </head>
 <body>
-    <!-- Navbar -->
     <div class="mainpage">
         <div class="navbar">
             <div class="logo">
@@ -48,12 +47,10 @@
                 <p id="thread-content">Loading...</p>
             </div>
 
-            <!-- Comments Section (Answers) -->
             <div class="answers" id="comments-section">
                 <!-- Comments will be dynamically inserted here -->
             </div>
 
-            <!-- New Comment Form -->
             <div class="reply-form">
                 <form id="comment-form">
                     <div class="author-section">
@@ -61,10 +58,10 @@
                         <h2>Add your comment</h2>
                     </div>
                     <div class="author-section">
-                        <input type="text" name="author" placeholder="Your Name" required>
+                        <input type="text" name="author" id="comment-author" placeholder="Your Name" required>
                     </div>
                     <div class="submit">
-                        <textarea id="content" name="content" required placeholder="Write your comment here..."></textarea>
+                        <textarea id="comment-content" name="content" required placeholder="Write your comment here..."></textarea>
                         <button type="submit">
                             <i class="fa-solid fa-arrow-up"></i>
                         </button>
@@ -73,7 +70,6 @@
             </div>
         </div>
 
-        <!-- Footer -->
         <div class="footer">
             <div class="icons">
                 <i class="fa-brands fa-facebook"></i>
@@ -82,14 +78,13 @@
                 <i class="fa-brands fa-github"></i>
             </div>
             <div class="texted">
-                <span>Copy Right 2024 © By</span>
+                <span>Copy Right 2024 ©️ By</span>
                 <a href="#Simple Forum" class="color">Simple Forum</a>
                 <span> All Rights Reserved</span>
             </div>
         </div>
     </div>
 
-    <!-- JavaScript to handle API integration -->
     <script src="main.js"></script>
 </body>
 </html>
