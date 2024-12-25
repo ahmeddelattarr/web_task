@@ -1,9 +1,20 @@
-// API base URL
+//fetch data of posts
+// async always followed by await >> to wait for data to be loaded from API
+// => ( arrow function ): to write function on 1 line
+//${selectedCategory} >> $ :mean dynamic variable (word changes)
+//.ok>> is a built-in function that check data loaded or not
+//   function (throw nwe error) : to return error
+//window.location.search : current location
+
+////////////////////////////////////////////////////////////////////////////////////////
+// home :
+
 const API_BASE_URL = 'http://127.0.0.1:8000';
 
-// ================ ALL POSTS ================
 async function fetchPosts() {
     const apiUrl = `${API_BASE_URL}/api/posts/`;
+    // try and catch >> try : to write code in it
+                  //catch: to catch error in case find
     try {
         const response = await fetch(apiUrl);
         if (!response.ok) {
@@ -42,22 +53,32 @@ async function fetchPosts() {
         container.innerHTML = '<p style="color: red;">Failed to load posts. Please try again later.</p>';
     }
 }
+ //////////////////////////////////////////////////////////////////////////
 
 // ================ NAVIGATION BAR ================
 document.addEventListener('DOMContentLoaded', () => {
-    // Navigation link handling
+    // Select all navigation links
     const navLinks = document.querySelectorAll('.nav-link');
 
+    // Function to set the active class >>to change color of this nav-link when I am in this page
     const setActiveNav = (event) => {
+
+    // Remove the 'active' class from all links
+    //forEach function >> to loop on all links and delete active class
         navLinks.forEach(link => link.classList.remove('active'));
+
+        // Add the 'active' class to the clicked link
         event.target.classList.add('active');
     };
 
+    // Attach event listeners to all nav links
     navLinks.forEach(link => {
         link.addEventListener('click', setActiveNav);
     });
 
-    const currentPath = window.location.pathname.split('/').pop();
+
+    //  highlight the active link based on the current page
+    const currentPath = window.location.pathname.split('/').pop();  //catch  location url
     navLinks.forEach(link => {
         if (link.getAttribute('href') === currentPath) {
             link.classList.add('active');
@@ -68,37 +89,46 @@ document.addEventListener('DOMContentLoaded', () => {
     const currentPage = getCurrentPage();
     switch (currentPage) {
         case 'home.html':
-            fetchPosts();
+            fetchPosts(); // call function posts (in home)
             break;
         case 'Category.html':
-            initializeCategories();
+            initializeCategories(); // call function initializeCategories (in category)
             break;
         case 'Category-Thread.html':
-            initializeCategoryThreads();
+            initializeCategoryThreads();// call function initializeCategoryThreads (in category threads)
             break;
         case 'Thread.html':
-            initializeThreadDetails();
+            initializeThreadDetails();// call function initializeThreadDetails (in  threads)
             break;
         case 'new-thread.html':
-            initializeNewThreadForm();
+            initializeNewThreadForm();// call function initializeNewThreadForm (in category new thread "form")
             break;
     }
 });
+///////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // ================ CATEGORIES PAGE ================
+//to get all category
 async function initializeCategories() {
     const categoriesGrid = document.querySelector('.categories-grid');
+
+   // if categoriesGrid empty >>return
     if (!categoriesGrid) return;
 
     try {
+        // Fetch categories from the API
         const response = await fetch(`${API_BASE_URL}/api/posts/?ordering=category`);
+       //Handle potential errors: .ok>> is a built-in function that check data loaded or not
         if (!response.ok) {
+          //   function (throw nwe error) : to return error
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
 
         const posts = await response.json();
-        const categories = [...new Set(posts.map(post => post.category))];
 
+      // Extract unique categories from posts
+        const categories = [...new Set(posts.map(post => post.category))];
+      // Generate HTML for each category
         categoriesGrid.innerHTML = categories
             .map(category => `
                 <a href="Category-Thread.html?category=${encodeURIComponent(category)}">
@@ -114,11 +144,14 @@ async function initializeCategories() {
         categoriesGrid.innerHTML = '<p>Failed to load categories. Please try again later.</p>';
     }
 }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // ================ CATEGORY THREADS PAGE ================
+
+//to find the page that i clicked
 async function initializeCategoryThreads() {
     const urlParams = new URLSearchParams(window.location.search);
-    const selectedCategory = urlParams.get('category');
+    const selectedCategory = urlParams.get('category');// Get category from URL query
     const categoryThread = document.querySelector('.category-thread');
     if (!categoryThread) return;
 
@@ -170,6 +203,7 @@ async function initializeCategoryThreads() {
         categoryThread.innerHTML = '<p style="color:red;">Failed to load threads. Please try again later.</p>';
     }
 }
+////////////////////////////////////////////////////////////////////////////////////////
 
 // ================ NEW THREAD PAGE ================
 function initializeNewThreadForm() {
@@ -177,7 +211,8 @@ function initializeNewThreadForm() {
     if (!form) return;
 
     form.addEventListener('submit', async (e) => {
-        e.preventDefault();
+        e.preventDefault(); //( function to prevent data appear in url )
+
         const formData = new FormData(form);
 
         try {
@@ -188,7 +223,7 @@ function initializeNewThreadForm() {
 
             if (response.ok) {
                 alert('Post created successfully!');
-                form.reset();
+                form.reset(); // Clear the form
                 window.location.href = 'Category.html';
             } else {
                 const errorData = await response.json();
@@ -200,6 +235,10 @@ function initializeNewThreadForm() {
         }
     });
 }
+////////////////////////////////////////////////////////////////////
+
+
+
 
 // ================ THREAD DETAILS PAGE ================
 function initializeThreadDetails() {
@@ -308,6 +347,7 @@ async function addComment(postId, author, content) {
         alert('Failed to add comment. Please try again.');
     }
 }
+/////////////////////////////////////////////////////////////////////////////////////////
 
 // ================ SEARCH FUNCTIONALITY ================
 document.addEventListener('DOMContentLoaded', () => {
