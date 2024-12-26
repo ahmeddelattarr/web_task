@@ -207,26 +207,31 @@ async function initializeCategoryThreads() {
 
 // ================ NEW THREAD PAGE ================
 
+//not find async duo to this function post (analyzing)
 function initializeNewThreadForm() {
     const form = document.getElementById('newThreadForm');
+     // if form empty >>return
     if (!form) return;
 
     form.addEventListener('submit', async (e) => {
-         e.preventDefault(); //( function to prevent data appear in url )
-
+        //( function to prevent data appear in url )
+         e.preventDefault();
+// new>> initialise object
         const formData = new FormData(form);
 
         try {
             const response = await fetch(`${API_BASE_URL}/api/posts/`, {
                 method: 'POST',
-                body: formData,
+                body: formData, //body>>keys in documentation
             });
-
+          //.ok>> is a built-in function that check data loaded or not
             if (response.ok) {
                 alert('Post created successfully!');
                 form.reset();
+                 //window.location.search : current location (home)
                 window.location.href = 'home.html';
             } else {
+                //change data array by json
                 const errorData = await response.json();
                 alert(`Failed to create post: ${errorData.detail || 'Unknown error'}`);
             }
